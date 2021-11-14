@@ -8,28 +8,33 @@ public class Veterinarian {
         Dog dog = new Dog();
         Horse horse = new Horse();
 
-        VetСlinic.print("");
+       VetClinic.print("");
 
         cat.setLocation("3");
-            cat.catLocation();
+        cat.catLocation();
         cat.setFood("Kitekat");
-            cat.eat();
+        cat.eat();
 
         dog.setLocation("12");
-            dog.dogLocation();
+        dog.dogLocation();
         dog.setFood("Pedigree");
-             dog.eat();
+        dog.eat();
 
         horse.setLocation("2");
-            horse.horseLocation();
+        horse.horseLocation();
         horse.setFood("Овес");
-            horse.eat();
+        horse.eat();
 
         Class clazz = horse.getClass();
         System.out.println("Рефлексия: " + clazz.getName());
     }
 
 }
+
+
+
+
+
 
 
 

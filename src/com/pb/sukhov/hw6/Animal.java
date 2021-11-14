@@ -26,7 +26,7 @@ public class Animal {
 
     public void makeNoise() { System.out.println("Животное шумит."); }
 
-     public void eat() {                                                       // Метод void вывод на экран
+    public void eat() {                                                       // Метод void вывод на экран
         System.out.println("Животное кушает.");
     }
 
@@ -55,5 +55,4 @@ public class Animal {
         return Objects.hash(food, location);
     }
 }
-
 

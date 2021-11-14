@@ -9,6 +9,7 @@ import java.util.Objects;
 //        Добавьте переменные (поля) в классы Dog, Cat, Horse, характеризующие только этих животных.
 //        В классах Dog, Cat, Horse переопределить методы toString, equals, hashCode.
 public class Cat extends Animal{
+
     String catName="Вася";
     String catBreed="Ангорская кошка";
     int catAge=2;
@@ -50,4 +51,3 @@ public class Cat extends Animal{
         return Objects.hash(super.hashCode(), catName, catBreed, catAge);
     }
 }
-

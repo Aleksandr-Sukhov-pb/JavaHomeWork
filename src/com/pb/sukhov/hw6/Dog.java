@@ -50,7 +50,3 @@ public class Dog extends Animal{
         return Objects.hash(super.hashCode(), dogName, dogBreed, dogAge);
     }
 }
-
-
-
-
