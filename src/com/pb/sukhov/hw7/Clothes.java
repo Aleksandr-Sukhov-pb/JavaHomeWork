@@ -10,25 +10,23 @@ package com.pb.sukhov.hw7;
 
 public abstract class Clothes {
 
+    private String size;
+    private String color;
+    private String price;
+    public String type;
 
-    public Clothes(String size) {
-        size = size;
-    }
-
-    protected String size;
-
-    public Clothes(int price) {
+    public Clothes(String type, String color, String size, String price) {
+        this.type = type;
+        this.color = color;
+        this.size = size;
         this.price = price;
+
     }
-
-    private int price;
-
-
-    protected String colour;
 
 
     public Clothes() {
 
     }
-    public String type;
+
+
 }

@@ -18,7 +18,12 @@ import java.util.StringTokenizer;
 
 public class Atelier {
 
-   // private static Clothes[] collections;
+
+    static String toStr(String type, String size, String color, String price) {
+        //переопределите данный метод по вашему усмотрению, чтобы получать корректный вывод в консоль
+        return "Одежда{ тип:" + type +"размер: " + size + ", цвет: " + color + ", цена: " + price +  "}";
+    }
+
 
     static void print(String text) {
         System.out.println(text);
@@ -27,13 +32,12 @@ public class Atelier {
 
     public static void dressWoman(Clothes[] collectionAll){
         for (Clothes collection: collectionAll){
-            if (collection instanceof Skirt){
+            if (collection instanceof WomenClothes){
                 Skirt skirt= (Skirt) collection;
-                print("Тип одежды:" + skirt.type);
-                print("Размер: " + skirt.size);
-                print("Цвет: " + skirt.colour);
-                print("Цена: " );
-
+               //       print("Тип одежды:" + collection.type);
+           //     print("Размер: " + size);
+               // print("Цвет: " + skirt.colour);
+               // print("Цена: " );
 
 
 
@@ -43,19 +47,34 @@ public class Atelier {
 
     }
 
+    static void dressMan (Clothes[] clothes) {
+        System.out.println("Мужская одежда:");
+        for (Clothes collection: clothes) {
+            if (collection instanceof ManClothes) {
+                System.out.println("Мужская одежда:");
+                 ((ManClothes) collection).dressMan();
+            }
+        }
+    }
+
+
+
 
     public static void main(String[] args) {
-        Clothes tshirt = new Tshirt();
-        Clothes tie = new Tie();
-        Clothes pants = new Pants();
-        Clothes skirt = new Skirt();
-            Clothes[] collectionAll = {tshirt, tie, pants, skirt};
+               
+         Skirt skirt = new Skirt();
+         Tshirt tshirt = new Tshirt();
+         Tie tie = new Tie();
+         Pants pants = new Pants();
+
+            Clothes[] clothes = {tshirt, tie, pants, skirt};
                 print("Мужская коллекция: ");
-                   // dressMan(collectionAll);
+              //      dressMan(clothes);
                     print(" ");
                 print("Женская коллекция: ");
-                    dressWoman(collectionAll);
-
+               //     dressWoman(clothes);
+              //  print(Skirt.type);
+        //System.out.println(price);
 
     }
 

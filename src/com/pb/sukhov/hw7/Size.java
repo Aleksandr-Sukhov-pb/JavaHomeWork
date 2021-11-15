@@ -8,49 +8,37 @@ package com.pb.sukhov.hw7;
 
 //import com.sun.org.apache.xpath.internal.operations.String;
 
-public class Size{
+public enum Size{
 
-        public int getEuroSize(String size){
-                int sizeEu = 0;
-                if (size == "XXS") {
-                    sizeEu = 32;
-                }
-                else if (size == "XS"){
-                    sizeEu = 34;
-                }
-                else if (size == "M") {
-                    sizeEu = 36;
-                }
-                else if (size == "L") {
-                    sizeEu = 38;
-                }
-                else if (size == "XL") {
-                sizeEu = 40;
-                }
-                  return sizeEu;
+        XXS(32, "Детский размер"),
+        XS(34, "Взрослый размер"),
+        S(36, "Взрослый размер"),
+        M(38, "Взрослый размер"),
+        L(40, "Взрослый размер");
+
+        private final int euroSize;
+
+        private final String description;
+
+        private Size(int euroSize, String description) {
+            this.euroSize = euroSize;
+            this.description = description;
         }
 
-
-        public String getDescription(String size){
-                String sizeChild;
-                if (size == "XXS") {
-                    sizeChild = "Детский размер";
-                }
-                    else { sizeChild = "Взрослый размер";
-                }
-                    return sizeChild;
+        public int getEuroSize() {
+            return euroSize;
         }
 
+        public String getDescription() {
+            return description;
+        }
 
 }
 
-    //    enum sizeE {
-    //        L,
-    //        M,
-    //        S,
-    //        XS,
-    //        XXS
-    //   }
+
+
+
+
 
 
 

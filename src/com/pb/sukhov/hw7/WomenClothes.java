@@ -6,4 +6,8 @@ package com.pb.sukhov.hw7;
 //Эти методы не принимают параметров, а только выводят информацию о одежде (название, размер, цену, цвет).
 
 public interface WomenClothes {
+
+    void dressWoman();
+
 }
+

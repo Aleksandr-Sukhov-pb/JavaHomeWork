@@ -5,5 +5,8 @@ package com.pb.sukhov.hw7;
 //- WomenClothes (женская оджеда) с методом dressWomen (одеть женщину).
 //Эти методы не принимают параметров, а только выводят информацию о одежде (название, размер, цену, цвет).
 
-public interface ManClothes {
+interface ManClothes {
+
+    void dressMan();
+
 }
