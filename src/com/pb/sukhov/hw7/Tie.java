@@ -8,20 +8,16 @@ package com.pb.sukhov.hw7;
 
 //- Tie (галстук) реализует интерфейс ManClothes.
 
-public class Tie extends Clothes implements ManClothes{
+ class Tie extends Clothes implements ManClothes{
 
-    public Tie() {
-        String type = "Галстук";
-        String color = "Синий";
-        String size = "XS";
-        String price = "180";
-
+    Tie(String type, String color, Size size, String price) {
+        super(type, color, size, price);
     }
-
-
 
     @Override
     public void dressMan() {
-
+        Atelier.print("Одежда для мужчины: " + type + ", " + getInfo());
     }
+
+
 }

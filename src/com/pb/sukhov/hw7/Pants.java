@@ -9,19 +9,19 @@ package com.pb.sukhov.hw7;
 //- Skirt (юбка) реализует интерфейс WomenClothes,
 //- Tie (галстук) реализует интерфейс ManClothes.
 
-public class Pants extends Clothes implements ManClothes{
+class Pants extends Clothes implements ManClothes, WomenClothes{
 
-    public Pants() {
-        String type = "Штаны";
-        String color = "Черный";
-        String size = "XL";
-        String price = "850";
-
+    Pants(String type, String color, Size size, String price) {
+        super(type, color, size, price);
     }
-
 
     @Override
     public void dressMan() {
+        Atelier.print("Одежда для мужчины: " + type + ", " + getInfo());
+    }
 
+    @Override
+    public void dressWomen() {
+        Atelier.print("Одежда для женщины: " + type + ", " + getInfo());
     }
 }

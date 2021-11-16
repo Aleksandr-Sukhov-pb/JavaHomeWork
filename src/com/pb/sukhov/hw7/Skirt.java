@@ -9,20 +9,16 @@ package com.pb.sukhov.hw7;
 
 //- Tie (галстук) реализует интерфейс ManClothes.
 
-public class Skirt extends Clothes implements WomenClothes{
+ class Skirt extends Clothes implements WomenClothes{
 
 
-    public Skirt() {
-        String type = "Юбка";
-        String color = "Серый";
-        String size = "M";
-        String price = "625";
-
+    Skirt(String type, String color, Size size, String price) {
+        super(type, color, size, price);
     }
 
 
     @Override
-    public void dressWoman() {
-
+    public void dressWomen() {
+        Atelier.print("Одежда для женщины: " + type + ", " + getInfo());
     }
 }

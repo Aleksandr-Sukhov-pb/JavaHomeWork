@@ -10,17 +10,16 @@ package com.pb.sukhov.hw7;
 
 public enum Size{
 
-        XXS(32, "Детский размер"),
-        XS(34, "Взрослый размер"),
-        S(36, "Взрослый размер"),
-        M(38, "Взрослый размер"),
-        L(40, "Взрослый размер");
+        XXS(32, "детский размер"),
+        XS(34, "взрослый размер"),
+        S(36, "взрослый размер"),
+        M(36, "взрослый размер"),
+        L(40, "взрослый размер");
 
         private final int euroSize;
-
         private final String description;
 
-        private Size(int euroSize, String description) {
+            Size(int euroSize, String description) {
             this.euroSize = euroSize;
             this.description = description;
         }
