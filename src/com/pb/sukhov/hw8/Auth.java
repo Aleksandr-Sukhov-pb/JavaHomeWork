@@ -65,25 +65,29 @@ class Auth {// extends JFrame implements ActionListener {
         String login;
         String password;
         String confirmPassword;
-            print("Введите ЛОГИН (a-z A-Z 5-20): ");
-                login = scanString();
-            print("Введите ПАРОЛЬ (a-z A-Z _ 5+): ");
-                password = scanString();
-            print("Введите ПАРОЛЬ повторно (a-z A-Z _ 5+): ");
-                confirmPassword = scanString();
+        boolean scanChecker=true;
+       while (scanChecker) {
+           print("Введите ЛОГИН (a-z A-Z 5-20): ");
+           login = scanString();
+           print("Введите ПАРОЛЬ (a-z A-Z _ 5+): ");
+           password = scanString();
+           print("Введите ПАРОЛЬ повторно (a-z A-Z _ 5+): ");
+           confirmPassword = scanString();
 
-           boolean scanCheck =  SignUp(login, password, confirmPassword);
+           boolean scanCheck = SignUp(login, password, confirmPassword);
+            scanChecker = !scanCheck;
 
+           if (!scanCheck) {
+               System.out.println("Введенный логин и пароль не соответствуют условиям, попробуйте заново!");
+           } else {
+               System.out.println("Сохраняем логин и пароль!");
+           }
 
-        if (scanCheck) {
-            System.out.println("It is a phone number");
-        } else {
-            System.out.println("It is not a phone number!");
-        }
-
-
+       }
+        print("Вышли за файл!");
 
     }
+
 
 
 }
