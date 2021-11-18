@@ -16,7 +16,7 @@ public class OnlineShop {
         print("|   << O n l i n e    S h o p >>    |");
         print("|___________________________________|");
 
-
+        //  new SignUp();
         new Auth();
 
 
