@@ -89,9 +89,9 @@ public class Auth {
             boolean scanCheck = SignUp(login, password, confirmPassword);
                 scanChecker = !scanCheck;
             if (!scanCheck)
-                System.out.println("Введенный логин и пароль не соответствуют условиям, регистрация заново!");
+                print("Введенный логин и пароль не соответствуют условиям, регистрация заново!");
                 else {
-                System.out.println("Сохраняем логин и пароль!");
+                print("Сохраняем логин и пароль!");
                     loginSave=login;
                     passwordSave=password;
                     break;
@@ -109,16 +109,11 @@ public class Auth {
                     print("Введите ПАРОЛЬ: ");
                         password = scanString();
                 boolean scanCheck = SignIn(login, password);
-                    scanChecker = !scanCheck;
-                if (!scanCheck)
-                    System.out.println("ЛОГИН или ПАРОЛЬ введены не верно, повторите заново вход!");
-                else {
                 print(" ___________________________________ ");
                 print("|      << Вы зашли на сайт! >>      |");
                 print("|___________________________________|");
                 break;
                     }
-                }
         }
 }
 
