@@ -22,7 +22,7 @@ package com.pb.sukhov.hw8;
 
 import java.util.Scanner;
 
-public class Auth {// extends JFrame implements ActionListener {
+public class Auth {
     String loginSave;
     String passwordSave;
 
@@ -50,28 +50,31 @@ public class Auth {// extends JFrame implements ActionListener {
             else return false;                                                       //иначе ложь
     }
 
-    public Boolean SignIn(String log, String pass){                                  //Метод проверка логина и паролей
+    public Boolean SignIn(String log, String pass)throws Exception{                  //Метод проверка логина и паролей
         boolean check=false;                                                         // ВХОД на сайт
         boolean loginCheck;
         boolean passwordCheck;
-        if (loginSave.equals(log))
-            loginCheck=true;
-        else {
-            loginCheck = false;
-            print("Логин введен не корректный");
+            if (loginSave.equals(log))
+                loginCheck = true;
+            else{
+                loginCheck = false;
+                //throw new WrongLoginException("ЛОГИН введен не корректный");         //2-й вар. Передача сообщение при исключении
+                throw new WrongLoginException();                                       //Вызов конструктора по умолч. исключение
             }
-        if (passwordSave.equals(pass))
-            passwordCheck=true;
-        else {
-            passwordCheck = false;
-                print("Пароль введен не корректный");
-            }
+
+            if (passwordSave.equals(pass))
+                passwordCheck = true;
+            else {
+                passwordCheck = false;
+                throw new WrongPasswordException("ПАРОЛЬ введен не корректный");      //Передача сообщение при исключении
+                 }
         if (loginCheck & passwordCheck)
             return true;                                                              //если все проверки пройдены - истина
-        else return false;                                                            //иначе ложь
+        else
+            return false;
     }
 
-    public Auth() {
+    public Auth() throws Exception {
         String password;
         String confirmPassword;
         String login;

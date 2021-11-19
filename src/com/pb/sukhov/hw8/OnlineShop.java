@@ -11,18 +11,12 @@ public class OnlineShop {
         System.out.println(text);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         print(" ___________________________________ ");
         print("|   << O n l i n e    S h o p >>    |");
         print("|___________________________________|");
 
-        //  new SignUp();
-        new Auth();
-
-
-
-
-
-    }
+          new Auth();
+        }
 }
 

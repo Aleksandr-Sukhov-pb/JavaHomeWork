@@ -4,11 +4,12 @@ package com.pb.sukhov.hw8;
 // с двумя конструкторами – один по умолчанию, второй принимает сообщение и передает
 // его в конструктор класса Exception.
 
+
 public class WrongLoginException extends Exception {
     private String detail;
 
     public WrongLoginException() {
-        detail = "Неверный логин";
+        detail = "Неверный ЛОГИН";
     }
 
     public WrongLoginException(String message) {
