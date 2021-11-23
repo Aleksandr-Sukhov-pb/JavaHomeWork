@@ -24,41 +24,48 @@ package com.pb.sukhov.hw8;
 public class Auth {
 
 
-    static boolean matches(String input, String regex) {                             //Метод void сравнение строки
-        boolean result = input.matches(regex);                                       //с шаблоном
+    static boolean matches(String input, String regex) {                                                       //Метод void сравнение строки
+        boolean result = input.matches(regex);                                                                 //с шаблоном
         return result;
     }
 
 
-    public static Boolean SignUp(String log, String pass, String confPass) {                 //Метод проверка логина и паролей
-        boolean loginCheck = matches(log, "^[A-Za-z0-9]\\w{5,20}");            //РЕГИСТРАЦИЯ
+    public static Boolean SignUp (String log, String pass, String confPass) throws Exception {                                  //Метод проверка логина и паролей
+        boolean rezSignUp;
+        boolean loginCheck = matches(log, "^[A-Za-z0-9]\\w{5,20}");                                     //РЕГИСТРАЦИЯ
         boolean passwordCheck = matches(pass, "\\w{5,}");
         boolean confirmPasswordCheck = matches(confPass, "\\w{5,}");
         if ((loginCheck & passwordCheck & confirmPasswordCheck) & (pass.equals(confPass)))
-            return true;                                                         //если все проверки пройдены - истина
-        else return false;                                                       //иначе ложь
+            rezSignUp = true;                                                                                      //если все проверки пройдены - истина
+        else {
+            rezSignUp = false;
+            throw new WrongLoginException("Введенный логин и пароль не соответствуют условиям, регистрация заново!");
+              }
+        if (rezSignUp)
+            return true;                                                                                       //если все проверки пройдены - истина
+        else
+            return false;
     }
 
-    public static Boolean SignIn(String log, String logSave, String pass, String passSave) throws Exception {                  //Метод проверка логина и паролей
-        boolean check = false;                                                         // ВХОД на сайт
+    public static Boolean SignIn(String log, String logSave, String pass, String passSave) throws Exception {   //Метод проверка логина и паролей
+        boolean check = false;                                                                                  // ВХОД на сайт
         boolean loginCheck;
         boolean passwordCheck;
         if ((logSave).equals(log))
             loginCheck = true;
         else {
             loginCheck = false;
-            //throw new WrongLoginException("ЛОГИН введен не корректный");         //2-й вар. Передача сообщение при исключении
-            throw new WrongLoginException();                                       //Вызов конструктора по умолч. исключение
+            throw new WrongLoginException("ЛОГИН/ПАРОЛЬ не корректные");                                       //Передача сообщение при исключении
         }
 
         if (passSave.equals(pass))
             passwordCheck = true;
         else {
             passwordCheck = false;
-            throw new WrongPasswordException("ПАРОЛЬ введен не корректный");      //Передача сообщение при исключении
+            throw new WrongPasswordException("ЛОГИН/ПАРОЛЬ не корректные");                                      //Передача сообщение при исключении
         }
         if (loginCheck & passwordCheck)
-            return true;                                                              //если все проверки пройдены - истина
+            return true;                                                                                       //если все проверки пройдены - истина
         else
             return false;
     }

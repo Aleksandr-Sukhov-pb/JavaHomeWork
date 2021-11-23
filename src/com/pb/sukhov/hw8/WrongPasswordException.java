@@ -8,7 +8,7 @@ public class WrongPasswordException extends Exception {
     private String detail;
 
     public WrongPasswordException() {
-        detail = "Неверный пароль";
+        detail = "Неверный ПАРОЛЬ";
     }
 
     public WrongPasswordException(String message) {

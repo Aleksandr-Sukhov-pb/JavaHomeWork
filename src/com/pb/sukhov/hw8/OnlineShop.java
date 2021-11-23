@@ -19,8 +19,6 @@ public class OnlineShop {
         return string;
     }
 
-
-
     public static void main(String[] args) throws Exception {
        //  public Auth() throws Exception {
 
@@ -40,17 +38,18 @@ public class OnlineShop {
                 password = scanString();
                 print("Введите ПАРОЛЬ повторно (a-z A-Z _ 5+): ");
                 confirmPassword = scanString();
-                boolean scanCheck = Auth.SignUp(login, password, confirmPassword);
-                scanChecker = !scanCheck;
-                if (!scanCheck)
-                    print("Введенный логин и пароль не соответствуют условиям, регистрация заново!");
-                else {
-                    print("Сохраняем логин и пароль!");
-                    loginSave = login;
-                    passwordSave = password;
-                    break;
+                try {
+                    boolean scanCheck = Auth.SignUp(login, password, confirmPassword);
+                    if(scanCheck) scanChecker=false;
+                } catch (WrongLoginException ex) {
+                    System.out.println("Код ошибки: " + ex.getMessage());
                 }
+                      loginSave = login;
+                    passwordSave = password;
             }
+
+                    print("Сохраняем логин и пароль!");
+
             print("Регистрация прошла успешно!");
             print(" ___________________________________ ");
             print("|       << Вход на сайт: >>         |");
@@ -62,16 +61,26 @@ public class OnlineShop {
                 login = scanString();
                 print("Введите ПАРОЛЬ: ");
                 password = scanString();
-                boolean scanCheck = Auth.SignIn(login, loginSave, password, passwordSave);
-                print(" ___________________________________ ");
-                print("|      << Вы зашли на сайт! >>      |");
-                print("|___________________________________|");
-                break;
 
+        try {
 
-                // new Auth();
+    boolean scanCheck = Auth.SignIn(login, loginSave, password, passwordSave);
+    if(scanCheck) scanChecker=false;
+
             }
-        }
+                 catch (WrongLoginException ex) {
+                    System.out.println("Код ошибки: " + ex.getMessage());
+                    print("Введите заново логин/пароль:");
+                    }
+
+            }
+
+        print(" ___________________________________ ");
+        print("|      << Вы зашли на сайт! >>      |");
+        print("|___________________________________|");
+
+    }
+
 }
 
 
