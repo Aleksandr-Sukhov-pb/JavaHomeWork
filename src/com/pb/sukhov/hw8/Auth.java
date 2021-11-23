@@ -20,15 +20,12 @@ package com.pb.sukhov.hw8;
 // с двумя конструкторами – один по умолчанию, второй принимает сообщение
 // и передает его в конструктор класса Exception
 
-//public Auth() throws Exception {
 public class Auth {
-
 
     static boolean matches(String input, String regex) {                                                       //Метод void сравнение строки
         boolean result = input.matches(regex);                                                                 //с шаблоном
-        return result;
+            return result;
     }
-
 
     public static Boolean SignUp (String log, String pass, String confPass) throws Exception {                                  //Метод проверка логина и паролей
         boolean rezSignUp;
@@ -69,6 +66,5 @@ public class Auth {
         else
             return false;
     }
-
 
 }

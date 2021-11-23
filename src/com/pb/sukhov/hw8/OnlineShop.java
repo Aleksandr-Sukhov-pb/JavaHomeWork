@@ -15,36 +15,36 @@ public class OnlineShop {
 
     public static String scanString() {                                                     //Метод ввод текста
         Scanner scan = new Scanner(System.in);
-        String string = scan.nextLine();
+            String string = scan.nextLine();
         return string;
     }
 
     public static void main(String[] args) throws Exception {
-       //  public Auth() throws Exception {
 
             print(" ___________________________________ ");
             print("|   << O n l i n e    S h o p >>    |");
             print("|___________________________________|");
-            String loginSave = null;
-            String passwordSave = null;
-            String password;
-            String confirmPassword;
-            String login;
+                String loginSave = null;
+                String passwordSave = null;
+                String password;
+                String confirmPassword;
+                String login;
             boolean scanChecker = true;
-            while (scanChecker) {
-                print("Введите ЛОГИН (a-z A-Z 5-20): ");
-                login = scanString();
-                print("Введите ПАРОЛЬ (a-z A-Z _ 5+): ");
-                password = scanString();
-                print("Введите ПАРОЛЬ повторно (a-z A-Z _ 5+): ");
-                confirmPassword = scanString();
+                while (scanChecker) {
+                    print("Введите ЛОГИН (a-z A-Z 5-20): ");
+                        login = scanString();
+                    print("Введите ПАРОЛЬ (a-z A-Z _ 5+): ");
+                        password = scanString();
+                    print("Введите ПАРОЛЬ повторно (a-z A-Z _ 5+): ");
+                        confirmPassword = scanString();
                 try {
                     boolean scanCheck = Auth.SignUp(login, password, confirmPassword);
-                    if(scanCheck) scanChecker=false;
-                } catch (WrongLoginException ex) {
+                        if(scanCheck) scanChecker=false;
+                    }
+                catch (WrongLoginException ex) {
                     System.out.println("Код ошибки: " + ex.getMessage());
                 }
-                      loginSave = login;
+                    loginSave = login;
                     passwordSave = password;
             }
 
@@ -58,21 +58,17 @@ public class OnlineShop {
             scanChecker = true;
             while (scanChecker) {
                 print("Введите ЛОГИН: ");
-                login = scanString();
+                    login = scanString();
                 print("Введите ПАРОЛЬ: ");
-                password = scanString();
-
-        try {
-
-    boolean scanCheck = Auth.SignIn(login, loginSave, password, passwordSave);
-    if(scanCheck) scanChecker=false;
-
-            }
-                 catch (WrongLoginException ex) {
-                    System.out.println("Код ошибки: " + ex.getMessage());
+                    password = scanString();
+            try {
+                boolean scanCheck = Auth.SignIn(login, loginSave, password, passwordSave);
+                    if(scanCheck) scanChecker=false;
+                }
+            catch (WrongLoginException ex) {
+                System.out.println("Код ошибки: " + ex.getMessage());
                     print("Введите заново логин/пароль:");
-                    }
-
+                }
             }
 
         print(" ___________________________________ ");
@@ -82,5 +78,4 @@ public class OnlineShop {
     }
 
 }
-
 
