@@ -20,100 +20,48 @@ package com.pb.sukhov.hw8;
 // с двумя конструкторами – один по умолчанию, второй принимает сообщение
 // и передает его в конструктор класса Exception
 
-import java.util.Scanner;
-
+//public Auth() throws Exception {
 public class Auth {
-    String loginSave;
-    String passwordSave;
 
-    public void print(String text){                                                  //Метод void вывод на экран
-        System.out.println(text);
-    }
-
-    public  String scanString(){                                                     //Метод ввод текста
-        Scanner scan = new Scanner(System.in);
-            String string = scan.nextLine();
-                return	string;
-    }
 
     static boolean matches(String input, String regex) {                             //Метод void сравнение строки
         boolean result = input.matches(regex);                                       //с шаблоном
-            return result;
+        return result;
     }
 
-    public Boolean SignUp(String log, String pass, String confPass){                 //Метод проверка логина и паролей
+
+    public static Boolean SignUp(String log, String pass, String confPass) {                 //Метод проверка логина и паролей
         boolean loginCheck = matches(log, "^[A-Za-z0-9]\\w{5,20}");            //РЕГИСТРАЦИЯ
         boolean passwordCheck = matches(pass, "\\w{5,}");
         boolean confirmPasswordCheck = matches(confPass, "\\w{5,}");
-            if ((loginCheck & passwordCheck & confirmPasswordCheck)&(pass.equals(confPass)) )
-                return true;                                                         //если все проверки пройдены - истина
-            else return false;                                                       //иначе ложь
+        if ((loginCheck & passwordCheck & confirmPasswordCheck) & (pass.equals(confPass)))
+            return true;                                                         //если все проверки пройдены - истина
+        else return false;                                                       //иначе ложь
     }
 
-    public Boolean SignIn(String log, String pass)throws Exception{                  //Метод проверка логина и паролей
-        boolean check=false;                                                         // ВХОД на сайт
+    public static Boolean SignIn(String log, String logSave, String pass, String passSave) throws Exception {                  //Метод проверка логина и паролей
+        boolean check = false;                                                         // ВХОД на сайт
         boolean loginCheck;
         boolean passwordCheck;
-            if (loginSave.equals(log))
-                loginCheck = true;
-            else{
-                loginCheck = false;
-                //throw new WrongLoginException("ЛОГИН введен не корректный");         //2-й вар. Передача сообщение при исключении
-                throw new WrongLoginException();                                       //Вызов конструктора по умолч. исключение
-            }
+        if ((logSave).equals(log))
+            loginCheck = true;
+        else {
+            loginCheck = false;
+            //throw new WrongLoginException("ЛОГИН введен не корректный");         //2-й вар. Передача сообщение при исключении
+            throw new WrongLoginException();                                       //Вызов конструктора по умолч. исключение
+        }
 
-            if (passwordSave.equals(pass))
-                passwordCheck = true;
-            else {
-                passwordCheck = false;
-                throw new WrongPasswordException("ПАРОЛЬ введен не корректный");      //Передача сообщение при исключении
-                 }
+        if (passSave.equals(pass))
+            passwordCheck = true;
+        else {
+            passwordCheck = false;
+            throw new WrongPasswordException("ПАРОЛЬ введен не корректный");      //Передача сообщение при исключении
+        }
         if (loginCheck & passwordCheck)
             return true;                                                              //если все проверки пройдены - истина
         else
             return false;
     }
 
-    public Auth() throws Exception {
-        String password;
-        String confirmPassword;
-        String login;
-        boolean scanChecker=true;
-            while (scanChecker) {
-                print("Введите ЛОГИН (a-z A-Z 5-20): ");
-                    login = scanString();
-                print("Введите ПАРОЛЬ (a-z A-Z _ 5+): ");
-                    password = scanString();
-                print("Введите ПАРОЛЬ повторно (a-z A-Z _ 5+): ");
-                    confirmPassword = scanString();
-            boolean scanCheck = SignUp(login, password, confirmPassword);
-                scanChecker = !scanCheck;
-            if (!scanCheck)
-                print("Введенный логин и пароль не соответствуют условиям, регистрация заново!");
-                else {
-                print("Сохраняем логин и пароль!");
-                    loginSave=login;
-                    passwordSave=password;
-                    break;
-                    }
-                }
-        print("Регистрация прошла успешно!");
-        print(" ___________________________________ ");
-        print("|       << Вход на сайт: >>         |");
-        print("|___________________________________|");
 
-            scanChecker=true;
-                while (scanChecker) {
-                    print("Введите ЛОГИН: ");
-                        login = scanString();
-                    print("Введите ПАРОЛЬ: ");
-                        password = scanString();
-                boolean scanCheck = SignIn(login, password);
-                print(" ___________________________________ ");
-                print("|      << Вы зашли на сайт! >>      |");
-                print("|___________________________________|");
-                break;
-                    }
-        }
 }
-
