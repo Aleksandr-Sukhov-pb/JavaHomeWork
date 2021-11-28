@@ -60,7 +60,7 @@ public class Main  {
             println("|___________________________________|");
 
         NumBox<Integer> number = new NumBox<>();
-            println("Введите кол-во элементов массива (4-100: ");
+            println("Введите кол-во элементов массива: ");
         int elem;
             elem = scan.nextInt();
             println("Заполняем массив случайными числами от 1 до 99...");
