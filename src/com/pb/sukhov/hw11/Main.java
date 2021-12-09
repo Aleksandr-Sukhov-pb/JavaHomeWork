@@ -64,8 +64,8 @@ public class Main  {
         boolean result = input.matches(regex);                                                        //с шаблоном
         return result;
     }
-    public static void addElem(int index) throws JsonProcessingException {
-
+      public static void addElem(int index) throws JsonProcessingException {
+        Person jsonArray = new Person();
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         // для работы с полями типа LocalDate
@@ -90,64 +90,25 @@ public class Main  {
         int month = scan.nextInt();
         println("Введите день рождения: ");
         int dayOfMonth = scan.nextInt();
-       // String person="person";
-       // String s="s";
-       // String persons=person + s + index;
+
         List<Person> persons = Arrays.asList(
                 new Person(index, lastName, firstName, phone, addres, LocalDate.of(year,month, dayOfMonth))
         );
 
         String personsJson = mapper.writeValueAsString(persons);
-     //   JsonArray jArray = (JsonArray)  new JsonTokener(strJSON).nextValue();
 
+        jsonArray.put(personsJson);
 
-        JSONObject jo = new JSONObject();
-        JsonArray jo = new JsonArray();
+        Stream.of(personsJson)
+                .forEach(System.out::println);
 
+        Stream.of(jsonArray)
+                .forEach(System.out::println);
 
-    //    Concate JSONArray
-
-
-
-
-
-
-
-
-
-
-     //   ja.put(personsJson);
-
-        //   personsJson.add("sjdcfkljS");
-        print(personsJson);
-      //  List<String> myBook = Arrays.asList();
-
-        //    myBook.add(personsJson);
-          //  System.out.println(myBook);
-
-       // Cat myCat = new Cat();
-       // myBook.add(personsJson);
-
-
-        //  personsJson.add("We add an element to ArrayList!");
-       //
 
     }
 
-    //   private static String personsJson(int i) {
-    //  }
-
-    private JSONArray concatArray(JSONArray... arrs)
-            throws JSONException {
-        JSONArray result = new JSONArray();
-        for (JSONArray arr : arrs) {
-            for (int i = 0; i < arr.length(); i++) {
-                result.put(arr.get(i));
-            }
-        }
-        return result;
-    }
-
+//11
 
 
     public static void main(String[] args) throws Exception{
